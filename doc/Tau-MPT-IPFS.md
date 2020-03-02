@@ -13,7 +13,7 @@
 		
 4. resolve, resolveHash函数: 从数据库中根据key hash获取一个node
 	
- 	
+    
 	func (t *Trie) resolveHash(n hashNode, prefix []byte) (node, error) {
 		hash := common.BytesToHash(n)
 		if node := t.db.node(hash); node != nil {  //t.db.node(hash) -> 一个核心点
@@ -33,7 +33,7 @@ secureTrie是在Trie的基础上包了一层key，可以通过地址直接进行
 
 1. GetKey -> 可以通过key直接获取node信息，这个key可以理解为数据库中的key
 	
-    
+     
 	func (t *SecureTrie) GetKey(shaKey []byte) []byte {
    		if key, ok := t.getSecKeyCache()[string(shaKey)]; ok {
        		return key 
